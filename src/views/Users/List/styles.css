@@ -1,0 +1,7 @@
+.users-list {
+  margin-left: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
