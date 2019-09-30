@@ -18,6 +18,7 @@ export default class UsersList extends Component {
     const response = await conn.get(`/api/v1/users`);
 
     this.setState({ users: response.data })
+    console.log(process.env.NODE_ENV)
   }
 
   render() {

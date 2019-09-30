@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { getToken } from './auth'
 
-const endpoint = process.env.NODE_ENV === "production" ? "https://sales-cms-backend.herokuapp.com" : "http://localhost:3000"
-
-export const api = axios.create({ baseURL: 'https://rocketseat-node.herokuapp.com/api' })
+const endpoint = process.env.NODE_ENV === "production" ? process.env.API_URL : "http://localhost:3000"
 
 export const conn = axios.create({
   baseURL: endpoint
