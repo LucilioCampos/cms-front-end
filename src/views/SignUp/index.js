@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom"
+
 import { login } from '../../services/auth'
 import { conn } from '../../services/api'
+
+import "./styles.css"
 
 export default class Signup extends Component {
 
@@ -31,26 +33,43 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div className="container">
-        <form onSubmit={this.handleSignUp}>
-          {this.state.errors && <span>{this.state.errors.map(error => (
-            <p>{error}</p>
-          ))}</span>}
-          <input
-            type="text"
-            placeholder="email"
-            onChange={e => this.setState({ email: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            onChange={e => this.setState({ password: e.target.value })}
-          />
+      <div className="content">
+        <div id="login">
+          <form className="form-control" onSubmit={this.handleSignUp}>
+            {this.state.errors && <span>{this.state.errors.map(error => (
+              <p>{error}</p>
+            ))}</span>}
+            <h1>Login</h1>
+            <p>
+              <label htmlFor="email_login">Seu e-mail</label>
+              <input
+                id="email_login"
+                name="email_login"
+                required="required"
+                type="text"
+                placeholder="ex. contato@techope.com.br"
+                onChange={e => this.setState({ email: e.target.value })}
+              />
+            </p>
 
-          <button type="submit">Realizer o Login</button>
-          <hr />
-          <Link to="/">Fazer Login</Link>
-        </form>
+            <p>
+              <label htmlFor="password">Sua Senha</label>
+              <input
+                id="password"
+                name="password"
+                required="required"
+                type="password"
+                placeholder="ex. senha"
+                onChange={e => this.setState({ password: e.target.value })}
+              />
+            </p>
+
+            <p>
+              <input type="submit" value="Logar" />
+            </p>
+
+          </form>
+        </div>
       </div>
     )
   }

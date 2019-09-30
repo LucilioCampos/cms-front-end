@@ -15,7 +15,7 @@ export default class UsersList extends Component {
   }
 
   loadUsers = async (page = 1) => {
-    const response = await conn.get(`/users`);
+    const response = await conn.get(`/api/v1/users`);
 
     this.setState({ users: response.data })
   }

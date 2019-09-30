@@ -38,10 +38,10 @@ export default class UserComponent extends Component {
       <div className="show-user">
         <ul className="">
           <h3>{this.props.name}</h3>
-          <li><p><strong>Email: </strong>{email}</p></li>
-          <li><p><strong>Status: </strong>{status}</p></li>
-          <li><p><strong>Tipo: </strong>{kind}</p></li>
-          <li><p><strong>Observações: </strong>{notes}</p></li>
+          <li><p><strong>Email: </strong><span>{email}</span></p></li>
+          <li><p><strong>Status: </strong><span>{status}</span></p></li>
+          <li><p><strong>Tipo: </strong><span>{kind}</span></p></li>
+          <li><p><strong>Observações: </strong></p><span className="notes">{notes}</span></li>
           <li><Link to={`/users/${id}`}>Visualizar</Link></li>
         </ul>
       </div>
