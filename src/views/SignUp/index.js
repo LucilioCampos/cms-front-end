@@ -13,6 +13,10 @@ export default class Signup extends Component {
     error: "",
   }
 
+  componentDidMount() {
+    console.log(process.env.NODE_ENV)
+  }
+
   handleSignUp = async e => {
     e.preventDefault();
     const { email, password } = this.state;
