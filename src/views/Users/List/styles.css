@@ -5,3 +5,38 @@
   flex-wrap: wrap;
   align-content: space-between;
 }
+
+.input-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-kind {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-notes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  color: #333333;
+  border: 2px solid #333333
+}
