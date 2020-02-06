@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { login, isAuthenticated } from '../../services/auth'
+import { login } from '../../services/auth'
 import { conn } from '../../services/api'
 
 import "./styles.css"

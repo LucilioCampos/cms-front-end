@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import Modal from '../Modal'
 import "./styles.css"
 
 export default class UserComponent extends Component {
 
   state = {
     id: "",
+    name: "",
     email: "",
     status: "",
     kind: "",
@@ -31,7 +30,7 @@ export default class UserComponent extends Component {
       this.setState({ kind: 'Não informado' })
     }
 
-    this.setState({ id: this.props.id, email: this.props.email, notes: this.props.notes })
+    this.setState({ id: this.props.id, name: this.props.name, email: this.props.email, notes: this.props.notes })
   }
 
   handleUser = (user) => {
@@ -39,18 +38,33 @@ export default class UserComponent extends Component {
   }
 
   render() {
-    const { id, email, status, kind, notes } = this.state
-    const user = { id, email, status, kind, notes }
+    const { id, name, email, status, kind, notes } = this.state
     return (
-      <div className="show-user">
-        <ul className="">
+      <div >
+        <table id="customers">
+          <tr>
+            <th>nome</th>
+            <th>email</th>
+            <th>status</th>
+            <th>tipo</th>
+            <th>observações</th>
+          </tr>
+          <tr>
+            <td>{name}</td>
+            <td>{email}</td>
+            <td>{status}</td>
+            <td>{kind}</td>
+            <td>{notes}</td>
+          </tr>
+        </table>
+        {/* <ul className="">
           <h3>{this.props.name}</h3>
           <li><p><strong>Email: </strong><span>{email}</span></p></li>
           <li><p><strong>Status: </strong><span>{status}</span></p></li>
           <li><p><strong>Tipo: </strong><span>{kind}</span></p></li>
           <li><p><strong>Observações: </strong></p><span className="notes">{notes}</span></li>
-          <li><a onClick={() => this.props.handleUser(user)}>Visualizar</a></li>
-        </ul>
+          <li><button onClick={() => this.props.handleUser(user)}>Visualizar</button></li>
+        </ul> */}
       </div>
     )
   }

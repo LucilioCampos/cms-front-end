@@ -2,6 +2,7 @@
   padding: 15px  ;
   margin: 10px;
   display: flex;
+  flex-direction: row;
 }
 
 p {
@@ -47,7 +48,7 @@ span {
   max-width: 400px;
 }
 
-.show-user ul li a {
+.show-user ul li button {
   display: flex;
   border: 1px solid #fff;
   background-color: #11213a;
@@ -61,7 +62,7 @@ span {
   border-radius: 5px;
 }
 
-.show-user ul li a:hover {
+.show-user ul li button:hover {
   border: 2px solid #fff;
   background-color: #3f5873;
   color: #fff;
@@ -73,4 +74,5 @@ span {
   align-items: center;
   justify-content: first baseline;
 }
+
 

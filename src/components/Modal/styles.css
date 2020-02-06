@@ -6,7 +6,7 @@
   margin: calc(12%) calc(25%);
   transition: all .8s;
   width: 50%;
-  height: 450px;
+  height: 500px;
   position: absolute;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .user-form .input-notes textarea{
-  margin: 0px; width: 591px; height: 106px;
+  margin: 0px; height: 106px;
 }
 .modal-header {
   background: #263238;
@@ -150,4 +150,27 @@
 .open-modal-btn {
   margin: 15px;
   font-weight: bold;
+}
+
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd; cursor: pointer;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }
