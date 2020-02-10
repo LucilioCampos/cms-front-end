@@ -4,6 +4,7 @@ import { login } from '../../services/auth'
 import { conn } from '../../services/api'
 
 import "./styles.css"
+import { toast } from 'react-toastify';
 
 export default class Signup extends Component {
 
@@ -30,7 +31,8 @@ export default class Signup extends Component {
         this.props.history.push("/users");
       } catch (err) {
         console.log(err);
-        this.setState({ error: "Ocorreu um erro ao registrar sua conta. T.T" });
+        this.setState({ error: `Error ${err}` });
+        toast(this.state.error, { type: "error" })
       }
     }
   }

@@ -69,14 +69,12 @@ const UsersList = props => {
   }
 
   const loadUser = (selectUser) => {
-
+    const status = selectUser.status === 'active' ? true : false
     setUser(selectUser)
     setName(selectUser.name)
     setEmail(selectUser.email)
     setKind(selectUser.kind)
     setNotes(selectUser.notes)
-    console.log(selectUser.status)
-    const status = selectUser.status === 'active' ? true : false
     setStatus(status)
     handleModal()
   }
