@@ -1,28 +1,30 @@
 import React from 'react';
+import { useState, useEffect } from 'react'
 import { isAuthenticated, logout } from '../../services/auth'
 
 import './styles.css'
 
-export default class Header extends React.Component {
-  state = {
-    isLogged: ""
-  }
+const Header = () => {
+  const [logged, setLogged] = useState(false);
 
-  componentDidMount() {
-    this.setState({ isLogged: isAuthenticated() })
-  }
+  useEffect(() => {
+    handleLogin()
+  }, [logged])
 
-  render() {
-    return (
-      <header id="main-header">
-        <div className="main-nav">
-          <a className="active" href="#Home">Home</a>
-          <a href="#contact">Contact</a>
-          <a href="#about">About</a>
-          {this.state.isLogged && (<a onClick={logout} href="/auth">Logout</a>)}
-        </div>
-
-      </header>
-    )
+  const handleLogin = () => {
+    setLogged(isAuthenticated)
   }
+  return (
+    <header id="main-header">
+      <div className="main-nav">
+        <a className="active" href="#Home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        {logged && (<a onClick={logout} href="/auth">Logout</a>)}
+      </div>
+
+    </header>
+  )
 }
+
+export default Header

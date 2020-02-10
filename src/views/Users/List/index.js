@@ -3,8 +3,9 @@ import { conn } from "../../../services/api"
 
 import { useState, useEffect } from 'react'
 import "./styles.css";
-import UserComponent from '../../../components/User';
 import Modal from "../../../components/Modal"
+import Button from "../../../components/Button"
+import Fragment from "../../../components/Fragment"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify'
 
@@ -83,12 +84,16 @@ const UsersList = props => {
     setOpen(!open)
   }
 
+  const handleClose = (event) => {
+    event.preventDefault()
+    setOpen(false)
+  }
+
   return (
-    <>
+    <Fragment>
       <Modal className="modal"
         show={open}
         modalHeader={name}
-        handleClose={handleModal}
         handleOn={handleOn}
         close={handleModal}
       >
@@ -106,57 +111,44 @@ const UsersList = props => {
           <div className="select-kind">
             <span>Permissão</span>
             <select onChange={(event) => handleKind(event)}>
-              <option value={kind}>{kind}</option>
-              <option value="vendedor">Vendedor</option>
+              <option value='manager'>Gerente</option>
+              <option value='salesman'>Vendedor</option>
             </select>
           </div>
           <div className="input-notes">
             <span>Observações</span>
             <textarea onChange={(event) => handleNotes(event)} name="notes" value={notes}></textarea>
           </div>
+          <div className="submit-buttons">
+            <Button classes="btn-danger" handleClick={(e) => handleClose(e)} text="Fechar" />
+            <Button classes="btn-success" handleClick={(e) => handleOn(e)} text="Continuar" />
+          </div>
         </form>
       </Modal>
 
-      <table id="customers">
-        <tr>
-          <th>id</th>
-          <th>nome</th>
-          <th>email</th>
-          <th>status</th>
-          <th>tipo</th>
-          <th>observações</th>
-        </tr>
-        {users.map(user => (
-          <tr onClick={loadUser.bind(this, user)}>
-            <td>{user.id}</td>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>{user.status === 'active' ? 'ativo' : 'inativo'}</td>
-            <td>{user.kind === 'manager' ? 'gerente' : 'vendedor'}</td>
-            <td>{user.notes}</td>
+      <div className="table-wrapper">
+        <table id="customers">
+          <tr>
+            <th>id</th>
+            <th>nome</th>
+            <th>email</th>
+            <th>status</th>
+            <th>cargo</th>
+            <th>observações</th>
           </tr>
-        ))}
-
-      </table>
-      <div className="users-list">
-        <div className="show-user">
-
-        </div>
-        {/*         
-        {users.map(user => (
-          <UserComponent
-            key={user.id}
-            id={user.id}
-            name={user.name}
-            email={user.email}
-            status={user.status}
-            kind={user.kind}
-            notes={user.notes}
-            handleUser={() => loadUser(user)}
-          />
-        ))} */}
+          {users.map(user => (
+            <tr onClick={loadUser.bind(this, user)} key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.status === 'active' ? 'ativo' : 'inativo'}</td>
+              <td>{user.kind === 'manager' ? 'gerente' : 'vendedor'}</td>
+              <td>{user.notes}</td>
+            </tr>
+          ))}
+        </table>
       </div>
-    </>
+    </Fragment>
   )
 }
 

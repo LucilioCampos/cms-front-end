@@ -1,0 +1,40 @@
+.btn-danger, .btn-success {
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0px;
+  justify-content: center;
+  border-radius: 5px;
+}
+.btn-danger {
+  background-color: #b71c1c;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #943535;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.btn-danger:hover {
+  background-color: #c24e4e;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #a77e7e;
+}
+
+.btn-success {
+  background-color: #1b5e20;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #209628;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.btn-success:hover {
+  background-color: #3ba542;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #7eac81
+}
